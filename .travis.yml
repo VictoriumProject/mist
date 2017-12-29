@@ -82,7 +82,7 @@ after_success:
   - if [[ $TRAVIS_BRANCH == "master" ]]; then gulp uploadQueue --wallet --$GULP_PLATFORM; fi
 
 after_failure:
-  - cat /home/travis/build/ethereum/mist/tests/mist.log
+  - cat /home/travis/build/romansletr/mist/tests/mist.log
 
 notifications:
   webhooks:
