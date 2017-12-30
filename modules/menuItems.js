@@ -240,17 +240,17 @@ let menuTempl = function (webviews) {
                             // geth
                             } else {
                                 if (process.platform === 'darwin') {
-                                    userPath += '/Library/Ethereum/keystore';
+                                    userPath += '/Library/Victorium/keystore';
                                 }
 
                                 if (process.platform === 'freebsd' ||
                                 process.platform === 'linux' ||
                                 process.platform === 'sunos') {
-                                    userPath += '/.ethereum/keystore';
+                                    userPath += '/.victorium/keystore';
                                 }
 
                                 if (process.platform === 'win32') {
-                                    userPath = `${Settings.appDataPath}\\Ethereum\\keystore`;
+                                    userPath = `${Settings.appDataPath}\\Victorium\\keystore`;
                                 }
                             }
 
@@ -480,65 +480,65 @@ let menuTempl = function (webviews) {
             submenu: nodeSubmenu,
         });
     }
-
-    // add network switch
-    devToolsMenu.push({
-        label: i18n.t('mist.applicationMenu.develop.network'),
-        submenu: [
-            {
-                label: i18n.t('mist.applicationMenu.develop.mainNetwork'),
-                accelerator: 'CommandOrControl+Alt+1',
-                checked: ethereumNode.isOwnNode && ethereumNode.isMainNetwork,
-                enabled: ethereumNode.isOwnNode,
-                type: 'checkbox',
-                click() {
-                    restartNode(ethereumNode.type, 'main');
-                },
-            },
-            {
-                label: 'Ropsten - Test network',
-                accelerator: 'CommandOrControl+Alt+2',
-                checked: ethereumNode.isOwnNode && ethereumNode.network === 'test',
-                enabled: ethereumNode.isOwnNode,
-                type: 'checkbox',
-                click() {
-                    restartNode(ethereumNode.type, 'test');
-                },
-            },
-            {
-                label: 'Rinkeby - Test network',
-                accelerator: 'CommandOrControl+Alt+3',
-                checked: ethereumNode.isOwnNode && ethereumNode.network === 'rinkeby',
-                enabled: ethereumNode.isOwnNode,
-                type: 'checkbox',
-                click() {
-                    restartNode(ethereumNode.type, 'rinkeby');
-                },
-            },
-            {
-                label: 'Solo network',
-                accelerator: 'CommandOrControl+Alt+4',
-                checked: ethereumNode.isOwnNode && ethereumNode.isDevNetwork,
-                enabled: ethereumNode.isOwnNode,
-                type: 'checkbox',
-                click() {
-                    restartNode(ethereumNode.type, 'dev');
-                },
-            }
-        ] });
-
-    // Light mode switch should appear when not in Solo Mode (dev network)
-    if (ethereumNode.isOwnNode && ethereumNode.isGeth && !ethereumNode.isDevNetwork) {
-        devToolsMenu.push({
-            label: 'Sync with Light client (beta)',
-            enabled: true,
-            checked: ethereumNode.isLightMode,
-            type: 'checkbox',
-            click() {
-                restartNode('geth', null, (ethereumNode.isLightMode) ? 'fast' : 'light');
-            },
-        });
-    }
+    //
+    // // add network switch
+    // devToolsMenu.push({
+    //     label: i18n.t('mist.applicationMenu.develop.network'),
+    //     submenu: [
+    //         {
+    //             label: i18n.t('mist.applicationMenu.develop.mainNetwork'),
+    //             accelerator: 'CommandOrControl+Alt+1',
+    //             checked: ethereumNode.isOwnNode && ethereumNode.isMainNetwork,
+    //             enabled: ethereumNode.isOwnNode,
+    //             type: 'checkbox',
+    //             click() {
+    //                 restartNode(ethereumNode.type, 'main');
+    //             },
+    //         },
+    //         {
+    //             label: 'Ropsten - Test network',
+    //             accelerator: 'CommandOrControl+Alt+2',
+    //             checked: ethereumNode.isOwnNode && ethereumNode.network === 'test',
+    //             enabled: ethereumNode.isOwnNode,
+    //             type: 'checkbox',
+    //             click() {
+    //                 restartNode(ethereumNode.type, 'test');
+    //             },
+    //         },
+    //         {
+    //             label: 'Rinkeby - Test network',
+    //             accelerator: 'CommandOrControl+Alt+3',
+    //             checked: ethereumNode.isOwnNode && ethereumNode.network === 'rinkeby',
+    //             enabled: ethereumNode.isOwnNode,
+    //             type: 'checkbox',
+    //             click() {
+    //                 restartNode(ethereumNode.type, 'rinkeby');
+    //             },
+    //         },
+    //         {
+    //             label: 'Solo network',
+    //             accelerator: 'CommandOrControl+Alt+4',
+    //             checked: ethereumNode.isOwnNode && ethereumNode.isDevNetwork,
+    //             enabled: ethereumNode.isOwnNode,
+    //             type: 'checkbox',
+    //             click() {
+    //                 restartNode(ethereumNode.type, 'dev');
+    //             },
+    //         }
+    //     ] });
+    //
+    // // Light mode switch should appear when not in Solo Mode (dev network)
+    // if (ethereumNode.isOwnNode && ethereumNode.isGeth && !ethereumNode.isDevNetwork) {
+    //     devToolsMenu.push({
+    //         label: 'Sync with Light client (beta)',
+    //         enabled: true,
+    //         checked: ethereumNode.isLightMode,
+    //         type: 'checkbox',
+    //         click() {
+    //             restartNode('geth', null, (ethereumNode.isLightMode) ? 'fast' : 'light');
+    //         },
+    //     });
+    // }
 
     // Enables mining menu: only in Solo mode and Ropsten network (testnet)
     if (ethereumNode.isOwnNode && (ethereumNode.isTestNetwork || ethereumNode.isDevNetwork)) {
@@ -601,48 +601,48 @@ let menuTempl = function (webviews) {
         ],
     });
 
-    // HELP
-    const helpMenu = [];
-
-    if (process.platform === 'freebsd' || process.platform === 'linux' ||
-            process.platform === 'sunos' || process.platform === 'win32') {
-        helpMenu.push(
-            {
-                label: i18n.t('mist.applicationMenu.app.about', { app: Settings.appName }),
-                click() {
-                    Windows.createPopup('about');
-                },
-            },
-            {
-                label: i18n.t('mist.applicationMenu.app.checkForUpdates'),
-                click() {
-                    updateChecker.runVisibly();
-                },
-            }
-        );
-    }
-    helpMenu.push({
-        label: i18n.t('mist.applicationMenu.help.mistWiki'),
-        click() {
-            shell.openExternal('https://github.com/ethereum/mist/wiki');
-        },
-    }, {
-        label: i18n.t('mist.applicationMenu.help.gitter'),
-        click() {
-            shell.openExternal('https://gitter.im/ethereum/mist');
-        },
-    }, {
-        label: i18n.t('mist.applicationMenu.help.reportBug'),
-        click() {
-            shell.openExternal('https://github.com/ethereum/mist/issues');
-        },
-    });
-
-    menu.push({
-        label: i18n.t('mist.applicationMenu.help.label'),
-        role: 'help',
-        submenu: helpMenu,
-    });
+    // // HELP
+    // const helpMenu = [];
+    //
+    // if (process.platform === 'freebsd' || process.platform === 'linux' ||
+    //         process.platform === 'sunos' || process.platform === 'win32') {
+    //     helpMenu.push(
+    //         {
+    //             label: i18n.t('mist.applicationMenu.app.about', { app: Settings.appName }),
+    //             click() {
+    //                 Windows.createPopup('about');
+    //             },
+    //         },
+    //         {
+    //             label: i18n.t('mist.applicationMenu.app.checkForUpdates'),
+    //             click() {
+    //                 updateChecker.runVisibly();
+    //             },
+    //         }
+    //     );
+    // }
+    // helpMenu.push({
+    //     label: i18n.t('mist.applicationMenu.help.mistWiki'),
+    //     click() {
+    //         shell.openExternal('https://github.com/ethereum/mist/wiki');
+    //     },
+    // }, {
+    //     label: i18n.t('mist.applicationMenu.help.gitter'),
+    //     click() {
+    //         shell.openExternal('https://gitter.im/ethereum/mist');
+    //     },
+    // }, {
+    //     label: i18n.t('mist.applicationMenu.help.reportBug'),
+    //     click() {
+    //         shell.openExternal('https://github.com/ethereum/mist/issues');
+    //     },
+    // });
+    //
+    // menu.push({
+    //     label: i18n.t('mist.applicationMenu.help.label'),
+    //     role: 'help',
+    //     submenu: helpMenu,
+    // });
     return menu;
 };
 
