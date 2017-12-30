@@ -121,9 +121,9 @@ gulp.task('build-dist', (cb) => {
         name: applicationName.replace(/\s/, ''),
         productName: applicationName,
         description: applicationName,
-        homepage: 'https://github.com/ethereum/mist',
+        homepage: 'https://github.com/romansletr/mist',
         build: {
-            appId: `com.ethereum.${type}`,
+            appId: `com.victorium.${type}`,
             asar: true,
             directories: {
                 buildResources: '../build',
