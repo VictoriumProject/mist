@@ -190,7 +190,7 @@
                     "connectionTimeout": "Не удается подключиться к ноде, возможно завершилось фоновое приложение?",
                     "wrongPassword": "Неверный пароль",
                     "multipleKeysMatchAddress": "У нескольких ключей совпадает адрес, удалите дубликаты из хранилища ключей (Меню -> Аккаунты -> Резервное копирование -> Аккаунтов)",
-                    "insufficientFundsForGas": "Недостаточно средств на основном счете (ETHERBASE) чтобы заплатить за газ",
+                    "insufficientFundsForGas": "Недостаточно средств на основном счете чтобы заплатить за газ",
                     "sameAccount": "Can't send to itself"
                 },
                 "transactionThrow": "The contract won't allow this transaction to be executed",
