@@ -15,7 +15,4 @@ mist.log
 npm-debug.log
 /yarn.lock
 .gitignore
-Будет удалено .idea/misc.xml
-Будет удалено .idea/mist.iml
-Будет удалено .idea/modules.xml
-Будет удалено .idea/workspace.xml
+**/.directory

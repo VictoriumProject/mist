@@ -91,9 +91,9 @@ gulp.task('bundling-interface', (cb) => {
             bundle(`&& cd ../../meteor-dapp-wallet/app \
                 && meteor-build-client ../../mist/dist_${type}/app/interface/wallet -p ""`);
         } else {
-            console.log(`Pulling https://github.com/romansletr/meteor-dapp-wallet/tree/${options.walletSource} "${options.walletSource}" branch...`);
+            console.log(`Pulling https://github.com/VictoriumProject/meteor-dapp-wallet/tree/${options.walletSource} "${options.walletSource}" branch...`);
             bundle(`&& cd ../dist_${type} \
-                && git clone --depth 1 https://github.com/romansletr/meteor-dapp-wallet.git \
+                && git clone --depth 1 https://github.com/VictoriumProject/meteor-dapp-wallet.git \
                 && cd meteor-dapp-wallet/app \
                 && meteor-build-client ../../app/interface/wallet -p "" \
                 && cd ../../ \
@@ -121,7 +121,7 @@ gulp.task('build-dist', (cb) => {
         name: applicationName.replace(/\s/, ''),
         productName: applicationName,
         description: applicationName,
-        homepage: 'https://github.com/romansletr/mist',
+        homepage: 'https://github.com/VictoriumProject/mist',
         build: {
             appId: `com.victorium.${type}`,
             asar: true,
