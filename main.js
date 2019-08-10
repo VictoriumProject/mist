@@ -42,7 +42,7 @@ global.mode = store.getState().settings.uiMode;
 global.icon = `${__dirname}/icons/${global.mode}/icon.png`;
 global.dirname = __dirname;
 global.i18n = i18n;
-    
+
 // INTERFACE PATHS
 // - WALLET
 if (global.mode === 'wallet') {
@@ -156,7 +156,7 @@ async function onReady() {
 
     enableSwarmProtocol();
 
-    if (!Settings.inAutoTestMode) { await UpdateChecker.run(); }
+//     if (!Settings.inAutoTestMode) { await UpdateChecker.run(); }
 
     ipcProviderBackend.init();
 
@@ -248,7 +248,7 @@ async function kickStart() {
     // Update menu, to show node switching possibilities
     appMenu();
 
-    await handleOnboarding();
+    // await handleOnboarding();
 
     if (splashWindow) { splashWindow.show(); }
     if (!Settings.inAutoTestMode) { await handleNodeSync(); }

@@ -89,6 +89,7 @@ var signatureLookupCallback = function (textSignature) {
 
 Template['popupWindows_sendTransactionConfirmation'].onCreated(function () {
     var template = this;
+    console.log("popupWindows_sendTransactionConfirmation()");
 
     ipc.on('uiAction_decodedFunctionSignatures', function (event, params) {
         console.log('params returned', params);

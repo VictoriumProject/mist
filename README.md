@@ -1,25 +1,22 @@
 # Mist Browser<sup>beta</sup>
 
-[![Github All Releases](https://img.shields.io/github/downloads/ethereum/mist/total.svg)]()
-[![Join the chat at https://gitter.im/ethereum/mist](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ethereum/mist?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status develop branch](https://travis-ci.org/ethereum/mist.svg?branch=develop)](https://travis-ci.org/ethereum/mist)
-[![Code Climate](https://codeclimate.com/github/ethereum/mist/badges/gpa.svg)](https://codeclimate.com/github/ethereum/mist)
-
+[![Github All Releases](https://img.shields.io/github/downloads/VictoriumProject/mist/total.svg)]()
+[![Build Status develop branch](https://travis-ci.org/VictoriumProject/mist.svg?branch=develop)](https://travis-ci.org/VictoriumProject/mist)
 The Mist browser is the tool of choice to browse and use Ðapps.
 
 For the Mist API see the [MISTAPI.md](MISTAPI.md).
 
-Please note that this repository is the Electron host for the Meteor based wallet dapp whose repository is located here: https://github.com/ethereum/meteor-dapp-wallet.
+Please note that this repository is the Electron host for the Meteor based wallet dapp whose repository is located here: https://github.com/VictoriumProject/meteor-dapp-wallet.
 
 ## Help and troubleshooting
 
-Please check the [Mist troubleshooting guide](https://github.com/ethereum/mist/wiki).
+Please check the [Mist troubleshooting guide](https://github.com/VictoriumProject/mist/wiki).
 
-Or the [Gitter Channel](https://gitter.im/ethereum/mist), to connect with the community for instant help.
+Or the [Gitter Channel](https://gitter.im/VictoriumProject/mist), to connect with the community for instant help.
 
 ## Installation
 
-If you want to install the app from a pre-built version on the [release page](https://github.com/ethereum/mist/releases),
+If you want to install the app from a pre-built version on the [release page](https://github.com/VictoriumProject/mist/releases),
 you can simply run the executeable after download.
 
 For updating simply download the new version and copy it over the old one (keep a backup of the old one if you want to be sure).
@@ -58,7 +55,7 @@ Install the latter ones via:
 
 Now you're ready to initialise Mist for development:
 
-    $ git clone https://github.com/ethereum/mist.git
+    $ git clone https://github.com/VictoriumProject/mist.git
     $ cd mist
     $ yarn
 
@@ -179,7 +176,7 @@ To generate the binaries for Mist run:
 
     $ gulp
 
-To generate the Ethereum Wallet (this will pack the one Ðapp from https://github.com/ethereum/meteor-dapp-wallet):
+To generate the Ethereum Wallet (this will pack the one Ðapp from https://github.com/VictoriumProject/meteor-dapp-wallet):
 
     $ gulp --wallet
 

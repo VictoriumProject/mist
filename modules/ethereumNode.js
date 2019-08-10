@@ -409,7 +409,7 @@ class EthereumNode extends EventEmitter {
                 default:
                     args = (nodeType === 'geth')
                         ? [
-                            '--syncmode', syncMode,
+                            '--fast',
                             '--cache', ((process.arch === 'x64') ? '1024' : '512')
                         ]
                         : ['--unsafe-transactions'];
